@@ -1,0 +1,7 @@
+{
+  "name": "asistenciApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
