@@ -21,7 +21,7 @@ export class CumplePage implements OnInit {
 
   constructor(private afs: AngularFirestore,
               private titleService:Title) {
-    this.titleService.setTitle('🎉🎉Registro Cumple Mariana Fdz1🎉🎉')
+    this.titleService.setTitle('🎉🎉Registro Cumple Mariana🎉🎉')
     this.invitado = {
       nombre: '',
       nombre2: '',
