@@ -8,8 +8,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'cumple',
     pathMatch: 'full'
+  },
+  {
+    path: 'listado',
+    loadChildren: () => import('./listado/listado.module').then( m => m.ListadoPageModule)
+  },
+  {
+    path: 'cumple',
+    loadChildren: () => import('./cumple/cumple.module').then( m => m.CumplePageModule)
+  },
+  {
+    path: 'listado-cumple',
+    loadChildren: () => import('./listado-cumple/listado-cumple.module').then( m => m.ListadoCumplePageModule)
   },
 ];
 

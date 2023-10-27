@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="font-family: 'Pacifico'">{{conteo}} Registros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-list>
+   <ion-item  style="font-family: 'Pacifico'" *ngFor="let invitado of items |async;  let i = index">
+    {{invitado.nombre}}
+
+     <ion-item  style="font-family: 'Pacifico'" *ngIf="invitado.nombre2!==''">
+      {{invitado.nombre2}}
+     </ion-item>
+   </ion-item>
+ </ion-list>
+</ion-content>

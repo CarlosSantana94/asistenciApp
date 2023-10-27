@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true" class="background-image">
+
+  <div style="  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);" class="transparente">
+
+    <ion-item style="--border-width: 0 !important; --border-color: white">
+      <div class="ion-text-wrap ion-text-center" style="font-family: 'Pacifico'; color: #a214b2; font-size: 1.8rem;">
+        Confirma tu asistencia
+      </div>
+    </ion-item>
+    <ion-item style="--border-width: 0 !important; --border-color: white">
+      <div class="ion-text-wrap ion-text-center" style="font-family: 'Pacifico'; color: #de03d1; font-size: 2.5rem;">
+        Cumpleaños Mariana Fdz
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-input style="font-family: 'Comfortaa' !important; " label="Tu Nombre Completo" name="nombre"
+                 labelPlacement="floating" placeholder="Tu Nombre Completo"
+                 [(ngModel)]="invitado.nombre"></ion-input>
+    </ion-item>
+
+
+    <ion-item class="ion-text-center" style="min-height: 100px;
+    --padding-top:24px;
+     display: inline;
+    overflow: inherit;">
+
+      <button (click)="guardarInformacion()" class="button-53" role="button">Registrarme</button>
+
+    </ion-item>
+  </div>
+
+</ion-content>

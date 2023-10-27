@@ -1,20 +1,44 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="background-image">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div style="  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);" class="transparente">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-item style="--border-width: 0 !important; --border-color: white">
+
+      <div class="ion-text-wrap ion-text-center" style="font-family: 'Pacifico'; color: brown; font-size: 2.5rem;">
+        Posada HGR 180
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-input style="font-family: 'Comfortaa' !important; " label="Tu Nombre Completo" name="nombre"
+                 labelPlacement="floating" placeholder="Tu Nombre Completo"
+                 [(ngModel)]="invitado.nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox [(ngModel)]="acomp" style="font-family: 'Comfortaa' !important; ">¿Llevarás
+        Acompañante?
+      </ion-checkbox>
+    </ion-item>
+
+    <ion-item *ngIf="acomp">
+      <ion-input style="font-family: 'Comfortaa' !important; " label="Nombre Completo de Acompañante"
+                 [(ngModel)]="invitado.nombre2"
+                 labelPlacement="floating" placeholder="Nombre Completo de Acompañante"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-text-center" style="min-height: 100px;
+    --padding-top:24px;
+     display: inline;
+    overflow: inherit;">
+
+      <button (click)="guardarInformacion()" class="button-53" role="button">Registrarme</button>
+
+    </ion-item>
   </div>
+
 </ion-content>
