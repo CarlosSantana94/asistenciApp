@@ -19,15 +19,20 @@
 
     <ion-item>
       <ion-input style="font-family: 'Comfortaa' !important; " label="Tu Nombre Completo" name="nombre"
-                 labelPlacement="floating" placeholder="Tu Nombre Completo"
+                 labelPlacement="floating" placeholder="Tu Nombre "
                  [(ngModel)]="invitado.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="email"   email  style="font-family: 'Comfortaa' !important; " label="Tu Correo" name="nombre"
+                 labelPlacement="floating" placeholder="Tu Correo "
+                 [(ngModel)]="invitado.nombre2"></ion-input>
     </ion-item>
 
 
     <ion-item class="ion-text-center" style="min-height: 100px;
     --padding-top:24px;
      display: inline;
-    overflow: inherit;">
+    overflow: inherit;" *ngIf="invitado.nombre!=='' && invitado.nombre2!==''">
 
       <button (click)="guardarInformacion()" class="button-53" role="button">Registrarme</button>
 

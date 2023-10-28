@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
 import {Observable} from "rxjs";
+import {Route, Router} from "@angular/router";
 
 export interface Invitado {
   nombre: string;
@@ -8,6 +9,8 @@ export interface Invitado {
 
   userAgent: string;
   fecha: Date;
+
+  id: string;
 }
 
 @Component({
@@ -25,12 +28,13 @@ export class HomePage {
   invitado: Invitado;
   acomp: boolean;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, private router: Router) {
     this.invitado = {
       nombre: '',
       nombre2: '',
       userAgent: window.navigator.userAgent,
-      fecha: new Date()
+      fecha: new Date(),
+      id: ''
     }
 
     this.acomp = false
@@ -40,13 +44,18 @@ export class HomePage {
   }
 
   guardarInformacion() {
-    this.itemsCollection.add(this.invitado)
+    const id = this.afs.createId();
+    this.invitado.id = id;
+    this.itemsCollection.doc(id).set(this.invitado);
 
     this.invitado = {
       nombre: '',
       nombre2: '',
       userAgent: window.navigator.userAgent,
-      fecha: new Date()
+      fecha: new Date(),
+      id: ''
     }
+
+    this.router.navigateByUrl('/confirmacion-posadimms')
   }
 }

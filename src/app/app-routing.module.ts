@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'cumple',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -22,6 +22,14 @@ const routes: Routes = [
   {
     path: 'listado-cumple',
     loadChildren: () => import('./listado-cumple/listado-cumple.module').then( m => m.ListadoCumplePageModule)
+  },
+  {
+    path: 'confirmacion-cumple',
+    loadChildren: () => import('./confirmacion-cumple/confirmacion-cumple.module').then( m => m.ConfirmacionCumplePageModule)
+  },
+  {
+    path: 'confirmacion-posadimms',
+    loadChildren: () => import('./confirmacion-posadimms/confirmacion-posadimms.module').then( m => m.ConfirmacionPosadimmsPageModule)
   },
 ];
 

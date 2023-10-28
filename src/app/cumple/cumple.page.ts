@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
 import {Observable} from "rxjs";
 import {Invitado} from "../home/home.page";
 import {Title} from "@angular/platform-browser";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cumple',
@@ -20,13 +21,14 @@ export class CumplePage implements OnInit {
   acomp: boolean;
 
   constructor(private afs: AngularFirestore,
-              private titleService:Title) {
+              private titleService: Title, private router: Router) {
     this.titleService.setTitle('🎉🎉Registro Cumple Mariana🎉🎉')
     this.invitado = {
       nombre: '',
       nombre2: '',
       userAgent: window.navigator.userAgent,
-      fecha: new Date()
+      fecha: new Date(),
+      id: ''
     }
 
     this.acomp = false
@@ -36,14 +38,19 @@ export class CumplePage implements OnInit {
   }
 
   guardarInformacion() {
-    this.itemsCollection.add(this.invitado)
+    const id = this.afs.createId();
+    this.invitado.id = id;
+    this.itemsCollection.doc(id).set(this.invitado);
 
     this.invitado = {
       nombre: '',
       nombre2: '',
       userAgent: window.navigator.userAgent,
-      fecha: new Date()
+      fecha: new Date(),
+      id: ''
     }
+
+    this.router.navigateByUrl('/confirmacion-cumple')
   }
 
   ngOnInit(): void {
